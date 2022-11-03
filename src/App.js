@@ -5,7 +5,7 @@ import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 
 // 定数を宣言します。
-const TWITTER_HANDLE = 'Twitter';
+const TWITTER_HANDLE = 'Dior';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const TEST_GIFS = [
@@ -84,6 +84,14 @@ const App = () => {
 
   const renderConnectedContainer = () => (
     <div className="connected-container">
+      <div className="gif-grid">
+        {/* TEST_GIFSの代わりにgifListを使用します。 */}
+        {gifList.map((gif) => (
+          <div className="gif-item" key={gif}>
+            <img src={gif} alt={gif} />
+          </div>
+        ))}
+      </div>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -100,14 +108,6 @@ const App = () => {
           Submit
         </button>
       </form>
-      <div className="gif-grid">
-        {/* TEST_GIFSの代わりにgifListを使用します。 */}
-        {gifList.map((gif) => (
-          <div className="gif-item" key={gif}>
-            <img src={gif} alt={gif} />
-          </div>
-        ))}
-      </div>
     </div>
   );
 
@@ -137,10 +137,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">ChristianDior</p>
-          <p className="sub-text">
-            View your collection ✨
-          </p>
+          <p className="header">Dior</p>
           {/* ここでウォレットへの接続ボタンをレンダリングします。 */}
           {!walletAddress && renderNotConnectedContainer()}
         </div>
@@ -157,7 +154,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`@${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>
